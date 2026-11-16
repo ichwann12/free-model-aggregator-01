@@ -1366,6 +1366,7 @@ class Router:
                 if self.consecutive_failures[pid] >= DEAD_AFTER_CONSECUTIVE:
                     self.dead.add(pid)
                     log("%s looks spent after %d consecutive refusals" % (pid, DEAD_AFTER_CONSECUTIVE))
+                    continue
                 # One retry on the same provider: a one-off fail_call passes
                 # on the next call number, a spent budget fails again.
                 if result.retry_after:
